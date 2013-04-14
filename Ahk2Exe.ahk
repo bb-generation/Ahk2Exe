@@ -148,7 +148,7 @@ IfNotExist, %A_ScriptDir%\AutoHotkeySC.bin
 		)
 		IfMsgBox, Yes
 			return
-		ExitApp
+		ExitApp, 1
 	}
 	FileDelete, %A_ScriptDir%\___.tmp
 	
@@ -181,7 +181,7 @@ IfNotExist, %A_ScriptDir%\AutoHotkeySC.bin
 		)
 		IfMsgBox, Yes
 			return
-		ExitApp
+		ExitApp, 1
 	}
 	
 	FileCopy, %binFile%, %A_ScriptDir%\AutoHotkeySC.bin
@@ -252,7 +252,7 @@ return
 
 BadParams:
 Util_Info("Command Line Parameters:`n`n" A_ScriptName " /in infile.ahk [/out outfile.exe] [/icon iconfile.ico] [/bin AutoHotkeySC.bin]")
-ExitApp
+ExitApp, 1
 
 _ProcessIn:
 AhkFile := p2
@@ -404,7 +404,7 @@ Util_Error(txt, doexit=1, extra="")
 		if !Error_ForceExit
 			Exit
 		else
-			ExitApp
+			ExitApp, 1
 }
 
 Util_Info(txt)
